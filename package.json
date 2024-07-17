@@ -2,33 +2,65 @@
   "name": "url-search-query",
   "version": "1.0.4",
   "description": "This JavaScript code defines a function addQueryToUrl that adds query parameters to a given URL. It handles strings, numbers, booleans, dates, and arrays of these types, while ignoring functions and invalid types. The function also ensures that the final URL does not exceed the typical maximum length of 2000 characters allowed by browsers. If the URL is too long, it logs a warning to the console and truncates the URL to the maximum allowed length.",
-  "main": "src/index.ts",
+  "main": "lib",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "scripts": {
-    "build": "tsc",
-    "test": "jest",
-    "start": "node src/index.js"
+    "build": "rm -rf lib/ && yarn build:types && yarn build:code",
+    "build:code": "babel src --out-dir lib --ignore '**/*.test.ts' --extensions '.ts' && find ./lib -name '*.test.d.ts' -delete",
+    "build:types": "tsc --emitDeclarationOnly --declaration --isolatedModules false --declarationDir lib",
+    "coverage": "yarn test --coverage",
+    "lint": "yarn lint:ci --fix",
+    "lint:ci": "eslint . --ext .js,.ts,.json",
+    "prepack": "yarn build",
+    "test": "TZ=UTC jest src",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/MariannaMilovanova/url-search-query.git"
+  "lint-staged": {
+    "*.{html,md,yml}": [
+      "prettier --write"
+    ],
+    "*.{js,ts,json}": [
+      "eslint --fix"
+    ],
+    ".circleci/config.yml": [
+      ".husky/validate-circleci-config.sh"
+    ]
   },
   "keywords": [
     "search",
     "query",
-    "url",
-    "add",
-    "query"
+    "url"
   ],
   "author": "Marianna Milovanova",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/MariannaMilovanova/url-search-query/issues"
-  },
   "homepage": "https://github.com/MariannaMilovanova/url-search-query#readme",
+  "babel": {
+    "extends": "@shelf/babel-config/backend"
+  },
+  "prettier": "@shelf/prettier-config",
   "devDependencies": {
-    "@types/jest": "^29.5.12",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.2.2",
-    "typescript": "^5.5.3"
+    "@babel/cli": "7.21.0",
+    "@babel/core": "7.21.0",
+    "@shelf/babel-config": "1.2.0",
+    "@shelf/eslint-config": "2.29.0",
+    "@shelf/prettier-config": "1.0.0",
+    "@types/jest": "29.4.0",
+    "@types/node": "18",
+    "eslint": "8.35.0",
+    "husky": "8.0.3",
+    "jest": "29.4.3",
+    "lint-staged": "13.1.2",
+    "prettier": "2.8.4",
+    "typescript": "4.9.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
