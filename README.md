@@ -1,5 +1,3 @@
-Certainly! Here's a `README.md` file for the package:
-
 ```markdown
 # URL Query Parameter Adder
 
