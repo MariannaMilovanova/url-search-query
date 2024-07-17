@@ -66,8 +66,8 @@ console.log(newUrl);
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/your-username/url-query-parameter-adder.git
-cd url-query-parameter-adder
+git clone https://github.com/MariannaMilovanova/url-search-query.git
+cd url-search-query
 npm install
 ```
 
