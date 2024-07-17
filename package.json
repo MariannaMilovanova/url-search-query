@@ -1,6 +1,6 @@
 {
   "name": "url-search-query",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "This JavaScript code defines a function addQueryToUrl that adds query parameters to a given URL. It handles strings, numbers, booleans, dates, and arrays of these types, while ignoring functions and invalid types. The function also ensures that the final URL does not exceed the typical maximum length of 2000 characters allowed by browsers. If the URL is too long, it logs a warning to the console and truncates the URL to the maximum allowed length.",
   "main": "lib",
   "types": "lib/index.d.ts",
