@@ -15,7 +15,7 @@ with npm:
 npm install url-search-query
 ```
 
-Or with yarn:
+with yarn:
 
 ```bash
 yarn add url-search-query
