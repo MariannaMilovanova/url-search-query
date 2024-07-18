@@ -4,12 +4,14 @@
 This TypeScript package provides a utility function to add query parameters to a given URL.
 It handles various types of values including strings, numbers, booleans, dates, and arrays of these types.
 It also ensures the URL does not exceed typical browser length limits.
+```
 
 ## Installation
 
 To install the package, you can use npm or yarn:
 
-```bash
+with npm:
+```bash:
 npm install url-search-query
 ```
 
@@ -49,11 +51,11 @@ const query = {
   invalidProp: { key: 'value' }, 
   func: () => {} 
 };
-const url = 'https://example.com/?model=gpt-4o';
+const url = 'https://example.com/?model=new';
 const newUrl = addQueryToUrl(url, query);
 
 console.log(newUrl);
-// Output: https://example.com/?model=gpt-4o&view=dashboard&component=widget&users=1&users=2&count=5&isActive=true&date=2024-07-17T00:00:00.000Z
+// Output: https://example.com/?model=new&view=dashboard&component=widget&users=1&users=2&count=5&isActive=true&date=2024-07-17T00:00:00.000Z
 ```
 
 ## Development
