@@ -1,10 +1,8 @@
-```markdown
-# URL Query Parameter Adder
+## URL Query Parameter Adder
 
 This TypeScript package provides a utility function to add query parameters to a given URL.
 It handles various types of values including strings, numbers, booleans, dates, and arrays of these types.
 It also ensures the URL does not exceed typical browser length limits.
-```
 
 ## Installation
 
