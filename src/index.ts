@@ -23,8 +23,11 @@ export function addQueryParam(urlObj: URL, key: string, value: any): void {
 
 export function addQueryToUrl(url: string, query: Record<string, any>): string {
     const MAX_URL_LENGTH = 2000;
+
+    // Create URL object
     const urlObj = new URL(url);
 
+    // Add query parameters
     Object.keys(query).forEach(key => {
         const value = query[key];
         if (typeof value !== 'function') {
@@ -32,10 +35,13 @@ export function addQueryToUrl(url: string, query: Record<string, any>): string {
         }
     });
 
+    // Convert URL object to string
     let finalUrl = urlObj.toString();
+
+    // Check and truncate if the URL length exceeds the maximum allowed
     if (finalUrl.length > MAX_URL_LENGTH) {
         console.warn('URL exceeds the maximum length allowed by browsers. It will be truncated.');
-        finalUrl = finalUrl.substring(0, MAX_URL_LENGTH);
+        return finalUrl.substring(0, MAX_URL_LENGTH);
     }
 
     return finalUrl;
