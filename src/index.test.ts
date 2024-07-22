@@ -1,7 +1,7 @@
 import { addQueryToUrl } from './index';
 
 describe('addQueryToUrl', () => {
-    const baseUrl = 'https://example.com/?model=gpt-4o';
+    const baseUrl = 'https://example.com/?model=own';
 
     it('should add simple query parameters', () => {
         const query = { view: 'dashboard', component: 'widget' };
